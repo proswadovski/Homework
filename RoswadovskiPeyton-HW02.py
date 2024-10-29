@@ -17,21 +17,77 @@
 
 #You can use the equivalencies below.
 
-#A: .-          N: -.
-#B: -...        O: ---
-#C: -.-.        P: .--.
-#D: -..         Q: --.-
-#E: .           R: .-.
-#F: ..-.        S: ...
-#G: --.         T: -
-#H: ....        U: ..-
-#I: ..          V: ...-
-#J: .---        W: .--
-#K: -.-         X: -..-
-#L: .-..        Y: -.-- 
-#M: --          Z: --..
+# A: .-        N: -.
+# B: -...        O: ---
+# C: -.-.        P: .--.
+# D: -..         Q: --.-
+# E: .           R: .-.
+# F: ..-.        S: ...
+# G: --.         T: -
+# H: ....        U: ..-
+# I: ..          V: ...-
+# J: .---        W: .--
+# K: -.-         X: -..-
+# L: .-..        Y: -.-- 
+# M: --          Z: --..
 
+# Morse_code = {
+# "A":" .-",
+# "B":"-...",
+# "C: -.-.",
+# "D: -..",
+# "E: .",
+# "F: ..-.",
+# "G: --.",
+# "H: ....",
+# "I: ..","J: .---","K: -.-","L: .-..","M: --","N: -.",
+# "O: ---","P: .--.","Q: --.-","R: .-.","S: ...","T: -","U: ..-","V: ...-",
+# "W: .--","X: -..-","Y: -.--","Z: --.."}
+
+Morse_code = {
+"A":" .-",
+"B":" -...",
+"C":" -.-.",
+"D":" -..",
+"E":" .",
+"F":" ..-.",
+"G":" --.",
+"H":" ....",
+"I":" ..",
+"J":" .---",
+"K":" -.-",
+"L":" .-..",
+"M":" --",
+"N":" -.",
+"O":" ---",
+"P":" .--.",
+"Q":" --.-",
+"R":" .-.",
+"S":" ...",
+"T":" -",
+"U":" ..-",
+"V":" ...-",
+"W":" .--",
+"X":" -..-",
+"Y":" -.--",
+"Z":" --.."}
  
+decoded_message = input("Morse Code Message")
+decoded_message = decoded_message.strip()
+encoded_message = ""
+for char in decoded_message: 
+    if char == '':
+        encoded_message += " "
+    elif char.isalpha():
+        morse_code_value = Morse_code[char.upper()]
+        encoded_message += morse_code_value
+
+print(encoded_message)
+
+
+
+
+
 
 #Your program should output the correct Morse Code regardless of casing of the input characters. You should output spaces in the input string as two spaces, and separation between  Morse Code characters should be a single space.
 
