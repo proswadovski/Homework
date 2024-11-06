@@ -1,11 +1,55 @@
-# Name
+# Name: Peyton Roswadovski
 
-# Lab Section
+# Lab Section: 14
 
-# Submission Date
+# Submission Date: 11/05/24
 
-# Sources, help given to/received from
-#  -->
+# Sources, help given to/received from: Friend/former student in class
+#  Didn't have time to learn to finish the end
+
+def leap_year(year):
+    if (year % 4 == 0):
+        return True
+    elif ((year % 100 == 0) or (year % 400 != 0)):
+        return False
+
+def day_of_jan_1st(year):
+    y = year - 1
+    day = (36 + y + (y // 4) - (y // 100) + (y // 400)) % 7
+    return day
+
+def valid_date(month, day, year):
+    if month < 1 or month > 12:
+        return False
+    days_in_month = {
+        1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30,
+        7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31
+    }
+    if leap_year(year):
+        days_in_month[2] = 29 
+
+    if day < 1 or day > days_in_month.get(month, 0):
+        return False
+    return True
+
+def day_of_week(month, day, year):
+    first_day_of_year = day_of_jan_1st(year)
+    
+    days_in_month = [
+        31, 28, 31, 30, 31, 30,
+        31, 31, 30, 31, 30, 31
+    ]
+    
+    if leap_year(year):
+        days_in_month[1] = 29 
+
+    total_days = sum(days_in_month[:month-1]) + (day - 1)
+
+    day_of_week = (first_day_of_year + total_days) % 7
+    return day_of_week
+
+date_input = input("Enter a date in the format (MMDDYYYY): ")
+weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 # Overview
 
@@ -92,11 +136,5 @@
 
 # Your python file must include the standard required comments at the top of your file.
 
-# Name
-
-# Lab Section
-
-# Submission Date
-
-# Sources, help given to/received from
+#
 
