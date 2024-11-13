@@ -1,6 +1,14 @@
+# Name: Peyton Roswadovski
+
+# Lab Section: 14
+
+# Submission Date: 11/12/24
+
+# Sources, help given to/received from: Friend who took the class
+
 # You will be reading from and writing to a file.
 # You will read from prompt.txt Download prompt.txt.
-# # You will write to a file called "out.txt".
+# You will write to a file called "out.txt".
 
 # Look at prompt.txt to understand its structure.
 
@@ -28,13 +36,18 @@
 
 # Your python file must include the standard required comments at the top of your file.
 
-# Name
-
-# Lab Section
-
-# Submission Date
-
-# Sources, help given to/received from
-
+outfile = open("out.txt", 'w')
+infile =  open('prompt.txt', 'r')
+for line in infile:
+   output = ""
+   set = line.split("\t")
+   for x in set:
+       if ':' in x:
+           key, num = x.split(':')
+           if key == 'w':
+               output += ' ' * int(num)
+           if key == '*':
+               output += '*' * int(num)
+   outfile.write(output + "\n")
 
  
