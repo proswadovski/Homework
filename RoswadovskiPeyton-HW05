@@ -1,0 +1,104 @@
+#Peyton Roswadovski 
+#Lab Section: 14
+#Submission Date: 11/19/24
+#Sources: Paige Emerson (helped find color numbers)
+#Notes: Sorry I don't know what I'm doing
+
+#For this program, you will be creating a program to generate pixel art of your choice in a spreadsheet (Excel). 
+# Using the openpyxl library outlined in the lecture, you need to create a program that will generate a workbook, 
+# set the corresponding cells to be squares (or as close as you can get), and fill in the squares as needed. 
+# There is a reference image below. While there is distortion in the image, the cells are (and should be in 
+# your program) squares. You may not submit the example pixel art for your project.
+
+
+#Your code MUST contain all it needs to generate the image.
+#This means you cannot include your practice Excel file and copy it over to a new file to complete the assignment.
+#If you use the scraper outlined below, you can only use it to generate data structures for use in your code. The scrapper 
+#CANNOT be used in your program submission
+#You will likely need to experiment with how you set the width/height until you find squares.
+#Recall the height is defined by points where 1 point is equivalent to 1/72 of an inch and can be a value of 0-409
+#Width is can be set to a number 0-255 and denotes how many characters at 11 point font would be shown
+#The point for the font is the same as for the height
+#Roughly you can use a formula of row height = 6*column width
+#A good approach is to create a spreadsheet (or use grid paper) first to figure out what your pixel art will look like.
+#Once you figure out the layout of your image, you should know what cells are filled and how they are filled.
+#That information needs to be translated into code.
+#If you aren’t artistic, you can find pixel art to replicate.
+#You will need to submit the original image with your solution and cite it.
+#They picture doesn't need to be recognizable as something if you don't want
+#Your art must have at least 5 colors and be made of at least 100 cells.
+#Some students have had issues with local installs of Excel not displaying the images, you can try uploading it to your 
+# online Excel instance, or use an alternative like LibreOffice
+#Example image:
+#link.png
+#1.3 Scraper
+#How to get the coordinates you need to color into your program is up to you. Once you’ve figured out what your image is 
+#and the layout, you can manually enter all the cells to be colored into your program to be held in a data structure of 
+#some kind.
+
+import openpyxl
+
+wb = openpyyxl.loadworkbook('Homework05.xlxs')
+sheet = wb.active
+
+dark_green = '#4ea72e'
+light_green = '#8ed873'
+pink = '#ffc3f6'
+red = '#ff4c56'
+black = '000000'
+
+rows = [[dark_green, dark_green, dark_green, dark_green, dark_green], [light_green, light_green, dark_green, 
+         dark_green, dark_green, dark_green, dark_green], [light_green, light_green, light_green, light_green, 
+         dark_green, dark_green, dark_green, dark_green, dark_green], [pink, pink, light_green, light_green, 
+         light_green, light_green, light_green, light_green, dark_green, dark_green, dark_green], [pink, pink, pink, pink, 
+         light_green, light_green, light_green, dark_green, dark_green, dark_green, dark_green], [red, red, pink, pink, pink, 
+         pink, light_green, light_green, dark_green, dark_green, dark_green],[red, red, red, red, pink, pink, light_green, 
+         light_green, light_green, dark_green, dark_green] [red, red, black, red, red, red, pink, pink, light_green, dark_green, dark_green],
+        [red, red, red, red, red, red, red, pink, light_green, dark_green, dark_green], [black, red, red, red, black, red, red, pink, 
+         light_green, dark_green, dark_green], [red, red, red, red, red, red, red, pink, light_green, dark_green, dark_green],
+        [red, black, red, red, red, black, red, pink, light_green, dark_green], [red, red, red, red, red, red, red, red, pink, light_green, dark_green]
+         ]
+color_cord = {'#4ea72e':['A1', 'B1', 'C1', 'D1', 'E1', 'C2', 'B2', 'D2', 'E2', 'F2', 'G2', 'E3', 'F3', 'G3', 'H3', 'I3'
+                         'H4', 'I4', 'J4', 'H5', 'I5', 'J5', 'K5', 'I6', 'J6', 'K6', 'J7', 'K7', 'J8', 'K8', 'J9', 'K9', 'J10', 
+                         'K10', 'J11', 'K11', 'K12', 'K13'], 
+              '#8ed873':['A2', 'B2', 'A3', 'B3', 'C3', 'D3', 'C4', 'D4', 'E4', 'F4', 'G4', 'E5', 'F5', 'G5', 'G6', 'H6', 'G7', 'H7', 'I7', 'I8', 'I9', 'I10', 'I11', 'J12', 'J13'], 
+              '#ffc3f6':['A4', 'B4', 'A5', 'B5','C5', 'D5', 'C6', 'D6', 'E6', 'F6', 'E7', 'F7', 'G8', 'H8', 'H9', 'H10', 'H11', 'I12', 'I13'], 
+              '#ff4c56':['A6', 'B6', 'A7', 'B7', 'C7', 'D7', 'A8', 'B8', 'D8', 'E8', 'F8', 'A9', 'B9', 'C9', 'D9', 'E9', 'F9', 'G9', 'B10', 'C10,' 'D10', 
+                         'F10', 'G10', 'A11', 'B11', 'C11', 'D11', 'E11', 'G11', 'A12', 'C12', 'D12', 'E12', 'G12', 'H12', 'A13', 'B13', 
+                         'C13', 'D13', 'E13', 'F13', 'G13', 'H13'], 
+              '#000000':['C8', 'A10', 'E10', 'B12', 'F12']}
+
+count = 0
+
+for color in color_cord
+    color_cord += 
+
+#note: This part is optional; it is harder programming work but will save you tedium. 
+# Alternatively, if you made the image #in Excel first to work out the layout, you can scrape that file to generate 
+# the needed information for your program to #make the file. Above, it is stated that your generation program must be 
+# standalone. You can use a scraper to get a list #of all coordinates and their respective colors, print them out, and 
+# store that information in some data structure (like #lists or a dictionary) in your generation program. That is to say, 
+# you can use a program to generate the data structures #that you will then put in your image creation program.
+
+#You can determine if a cell is filled with if cell.fill.patternType != None.
+#You can pull the cell’s color with cell.fill.fgColor.rgb.
+#The cell’s coordinate can be found with cell.coordinate.
+#To scrape, remember you can select the cells based on a rectangular portion or via a slice of rows or columns.
+#Remember to cast it to a tuple to work with it most effectively.
+#You can then iterate through your selected cells to pull their fill color and coordinate.
+#wb = openpyxl.load_workbook("your file name") # open the workbook to scrape
+#sheet = wb.active # get the active sheet from it
+#cells = tuple(sheet[’A1’:lowerbound]) # get your collection of cells in their rows
+#color_dict = {} # create a dictionary to hold the colors and coordinates
+#for row in cells: # go through all the rows
+#    for cell in row:
+#       check if the cell is filled
+#       pull the cell color out of cell, store it
+#       pull the coordinate out of cell, store it
+#       see if the color already in the dictionary
+#        if yes, add the coordinate to a list that corresponds with the color as a key
+#        (the list would be the value, holding all coordinates that use that color)
+#        else
+#        add the color as a key to the dictionary, give it a value of a list with only
+#        the first coord found
+#print out your dictionary in a format you can use in your other programs 
